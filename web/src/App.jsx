@@ -65,22 +65,33 @@ import Login from './Components/Login';
 import Cities from './Components/Pages/Cities';
 import Rooms from './Components/Pages/Rooms'; 
 import ContactUs from './Components/ContactUs';
-import Food1 from './Components/Pages/Food1';
+import Food from './Components/Pages/Food';
 import FoodPage from './Components/Pages/FoodPage';
 import RoomDetail from './Components/Pages/RoomDetail';
 import Booking from "./Components/Pages/Booking" 
 import HomePage from './Components/Pages/HomePage';
+import CitiesPage from './Components/Pages/CitiesPage';
+import Villa from './Components/Pages/Villa';
+import VillaPage from './Components/Pages/VillaPage';
+import Beach from './Components/Pages/Beach';
+import BeachPage from './Components/Pages/BeachPage';
+import Mountain from './Components/Pages/Mountain';
+import MountainPage from './Components/Pages/MountainPage';
+import HomeDetail from './Components/Pages/HomeDetail';
+import SignUp from "./Components/SignUp"
+import Accomodations from './Components/Pages/Accomodations';
+import LogOut from './Components/Pages/LogOut';
 
-const foodData = [
-  // Your food data objects here
-];
+
 
 const App = () => {
   const location = useLocation();
   const [hideNavbarAndHero, setHideNavbarAndHero] = useState(false);
 
   useEffect(() => {
-    const hideRoutes = ['/suites', '/food', '/experiences', '/events','/booking', '/login', '/food', '/food/:id', '/rooms', '/room/:id'];
+    const hideRoutes = [ '/cities', '/experiences', '/events','/booking/:id', '/login',
+       , '/rooms', '/room/:id', '/villa','/villa/:id', '/cities/:id','/beach','/beach/:id',
+      '/mountains', '/mountains/:id','/service/:id','/sign-up','/contact-us'];
     const shouldHide = hideRoutes.some(route => {
       const regex = new RegExp(`^${route.replace(/:\w+/g, '\\w+')}$`);
       return regex.test(location.pathname);
@@ -94,17 +105,30 @@ const App = () => {
        <Navbar />
       {!hideNavbarAndHero && <Hero />}
       {!hideNavbarAndHero && <HomePage />}
-      
-      
+       
       <Routes>
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/food" element={<Food1 />} />
+        <Route path="/logout" element={<LogOut/>} />
+        
         <Route path="/login" element={<Login />} />
         <Route path="/cities" element={<Cities />} />
+        <Route path='/cities/:id' element={<CitiesPage/> } />
         <Route path="/rooms" element={<Rooms />} />
-        <Route path="/booking" element={<Booking/>} />
-        <Route path="/food/:id" element={<FoodPage foodData={foodData} />} />
+        <Route path="/villa" element={<Villa />} />
+        <Route path='/villa/:id' element={<VillaPage/> } />
+        <Route path="/booking/:id" element={<Booking/>} />
+        <Route path="/food/:id" element={<FoodPage />} />
         <Route path="/room/:id" element={<RoomDetail />} />
+        <Route path="/beach" element={<Beach />} />
+        <Route path="/beach/:id" element={<BeachPage />} />
+        <Route path="/mountains" element={<Mountain />} />
+        <Route path="/mountains/:id" element={<MountainPage />} />
+        <Route path="/service/:id" element={<HomeDetail />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        
+        <Route path='/suites' element={<Accomodations/>} />
+        
+       
       </Routes>
     </div>
   );

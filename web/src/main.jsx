@@ -14,14 +14,17 @@
 // main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx'; // Adjust the path as needed
+  import App from './App.jsx'; 
+import Food from './Components/Food.jsx';
+import ServicesProvider from './Components/ServicesProvider.jsx';
 
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ServicesProvider>
+    <  App />  
+    {/* <Food /> */}
+  </ServicesProvider>
 );
 

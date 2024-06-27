@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -21,16 +21,87 @@ import {
 
 
 const Hero = () => {
-  const [checkInDate, setCheckInDate] = useState(null);
-  const [checkOutDate, setCheckOutDate] = useState(null);
+
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+     
+    try {
+      const response = await fetch('api/types',
+      
+        {
+          headers: {
+            "ngrok-skip-browser-warning": '69420',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+             'Authorization': `Bearer ${'token'}`,
+      
+          },
+        }
+      );
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        const data = await response.json();
+        // console.log(data)
+        setData(data);
+      } else {
+        const responseText = await response.text();
+        console.error('Response content type:', contentType);
+        console.error('Response text:', responseText);
+        
+      }
+    } catch (error) {
+      setError(error.message);
+      // console.error('Error while getting products', error);
+    }
+  };
+
+  useEffect(() => {
+    getData()
+  },[]);
+
+
 
   return (
-    <div className='text-white flex flex-col bg-cover bg-center w-full' >
+<div className='text-white bg-cover bg-center w-full'>
+  <div className="bg-white py-4">
+    <div className="flex justify-start md:justify-between overflow-x-auto space-x-4 px-4"> {/* Updated to overflow-x-auto */}
+      {data.map((type) => (
+        <Link to="/service.type_name" key={type.type_id} className="flex flex-col items-center text-black text-sm ">
+          <div className="flex items-center bg-gray-50 border border-black text-gray-700 rounded-full px-5 py-3 text-sm font-medium">
+            icon {/* Replace with actual icon code */}
+          </div>
+          <span className="mt-2">{type.type_name}</span> {/* Add margin between icon and text */}
+        </Link>
+      ))}
+    </div>
+  </div>
+</div>
 
 
-      <div className="bg-white py-4">
-        <div className="flex flex-row items-center justify-between mx-auto space-x-4 px-4 overflow-x-auto touch-pan-x">
-          <Link to="/cities" className="flex flex-col items-center text-black text-sm">
+
+
+    // <div className='text-white flex flex-col bg-cover bg-center w-full' >
+
+
+    //   <div className="bg-white py-4">
+    //     <div className="flex flex-row items-center mx-auto space-x-4 px-4  touch-pan-x">
+    //       {data.map((type) => {
+    //          return <Link to="/cities" key={type.type_id} className="flex flex-col items-center text-black text-sm">
+    //          <FaCity size={20} />
+    //          <span>{type.type_name}</span>
+    //        </Link>
+    //       })}
+
+    //     </div>
+    //   </div>
+    // </div>
+  );
+}
+
+export default Hero;
+
+          {/* <Link to="/cities" className="flex flex-col items-center text-black text-sm">
             <FaCity size={20} />
             <span>Cities</span>
           </Link>
@@ -54,9 +125,9 @@ const Hero = () => {
             <FaUmbrellaBeach size={20} />
             <span>Beach</span>
           </Link>
-          <Link to="/terrain" className="flex flex-col items-center text-black text-sm">
+          <Link to="/mountains" className="flex flex-col items-center text-black text-sm">
             <FaMountain size={20} />
-            <span>Terrain</span>
+            <span>  Mountains</span>
           </Link>
           <Link to="/island" className="flex flex-col items-center text-black text-sm">
             <FaTree size={20} />
@@ -81,14 +152,7 @@ const Hero = () => {
           <Link to="/tour-guide" className="flex flex-col items-center text-black text-sm">
             <FaUserTie size={20} />
             <span>Tour Guide</span>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default Hero;
+          </Link> */}
 
 
 

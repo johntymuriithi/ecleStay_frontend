@@ -100,8 +100,9 @@
 
 
 
-import { useParams } from 'react-router-dom';
+
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Food0 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food0.jpg';
 import Food2 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food2.jpg';
@@ -110,10 +111,10 @@ import Food4 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food4.jpg';
 import Food5 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food5.jpg';
 import Contact from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Contact.png';
 
-const FoodPage = ({ foodData }) => {
+const FoodPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const roomData = location.state?.foodData;
+  const foodData = location.state?.foodData;
 
   useEffect(() => {
     if (!foodData) {
@@ -121,104 +122,28 @@ const FoodPage = ({ foodData }) => {
     }
   }, [foodData, navigate]);
 
+  // If roomData is null, render a loading message or nothing
   if (!foodData) {
-    return null; // or render a loading indicator/message
+    return null; // You can render a loading spinner or message here
   }
 
-
   return (
-    // <div className="w-screen h-screen flex flex-col bg-white">
-    //   <div className="flex flex-col items-center">
-    //     <img src={food.imageUrl} alt={food.name} className="w-full h-64 object-cover" />
-    //     <div className="p-4 text-center">
-    //       <h1 className="text-3xl font-bold">{food.name}</h1>
-    //       <p className="text-gray-600">{food.type}</p>
-    //       <p className="text-gray-800 mt-2">{food.price}</p>
-          
-    //       {/* Additional details */}
-    //       <div className="mt-4">
-    //         <h2 className="text-xl font-bold">Details:</h2>
-    //         {/* Add more details like area, reviews, delivery person, availability */}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-
-
-
-//     <div className="w-screen h-screen flex flex-col bg-white">
-//       <h1 className="text-3xl font-bold ml-10 mt-11 mb-4">{foodData.name}</h1>
-//       <div className="flex flex-wrap md:ml-10 ml-0">
-//         <div className="w-full md:w-1/2 mb-4 md:mb-0">
-//           <img className="w-full h-auto rounded" src={foodData.imageUrl} alt={foodData.name}/>
-
-//           <div className="mt-4 mb-4">
-//             <p className="font-bold">Location: Nyeri, Kenya</p>
-//           </div>
-//           <div className="mb-4">
-//             <p className="font-bold">Bed: {foodData.bed}</p>
-//           </div>
-//           <div className="mb-4">
-//             <p className="font-bold">Bathroom: {foodData.bathroom}</p>
-//           </div>
-//         </div>
-
-//         <div className="w-full md:w-1/2 md:pl-10 flex flex-wrap justify-end">
-//           <div className="w-full md:w-1/2 mb-4">
-//             <img className="w-full h-auto rounded" src={Food0} alt="Room 9" />
-//           </div>
-//           <div className="w-full md:w-1/2 mb-4">
-//             <img className="w-full h-auto rounded" src={Food2} alt="Room 8" />
-//           </div>
-//           <div className="w-full md:w-1/2 mb-4">
-//             <img className="w-full h-auto rounded" src={Food4} alt="Room 7" />
-//           </div>
-//           <div className="w-full md:w-1/2 mb-4">
-//             <img className="w-full h-auto rounded" src={Food5} alt="Room 6" />
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Host Information */}
-//       <div className="flex items-center mt-0 bg-white p-4 ">
-//         <div className="w-1/4 flex justify-center">
-//           <img className="w-20 h-20 rounded-full" src={Contact} alt="Host Profile" />
-//         </div>
-//         <div className="w-3/4 pl-4">
-//           <p className="font-bold">Host Name</p>
-//           <p className="font-bold">Phone: 07xxxxxxxx</p>
-//           <p className="font-bold">Email: host@gmail.com</p>
-//           <p className="font-bold">Postal Address:</p>
-//           <p>Description of the host goes here...</p>
-//         </div>
-//       </div>
-
-//       {/* Hotel Description */}
-//       <div className="bg-white p-4">
-//         <p className="font-bold mb-2">Hotel Description:</p>
-//         <p>
-//           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nisi et arcu tincidunt tincidunt vel a sem.
-//           In hac habitasse platea dictumst. Integer nec odio. Praesent libero.
-//         </p>
-//       </div>
-//     </div>
-
-<div className="w-screen h-screen flex flex-col bg-white">
-      <h1 className="text-3xl font-bold ml-10 mt-11 mb-4">Your Comfort is Our Concern</h1>
+    <div className="w-full h-full flex flex-col bg-white">
+      <h1 className="text-3xl font-bold ml-10 mt-11 mb-4">Best Satisfaction offer</h1>
       <div className="flex flex-wrap md:ml-10 ml-0">
-        <div className="w-full md:w-1/2  mb-4 md:mb-0">
+        {/* Food Details */}
+        <div className="w-full md:w-1/2 mb-4 md:mb-0">
           <img className="mx-auto lg:ml-20 w-[70%] h-auto rounded" src={foodData.imageUrl} alt={foodData.name} />
-          
           <div className="mt-4 mb-4 mx-auto lg:ml-20">
-            <p className="font-bold">Nyeri,Kenya </p>
-          </div>
-          <div className="mb-4  mx-auto lg:ml-20">
-            <p className="font-bold">Bed:Double-Bed</p>
-            <p>{roomData.bed}</p>
+            <p className="font-bold">Nyeri, Kenya</p>
           </div>
           <div className="mb-4 mx-auto lg:ml-20">
-            <p className="font-bold">Bathroom:Private</p>
-            <p>{roomData.bathroom}</p>
+            <p className="font-bold">Bed: Double-Bed</p>
+            <p>{foodData.bed}</p>
+          </div>
+          <div className="mb-4 mx-auto lg:ml-20">
+            <p className="font-bold">Bathroom: Private</p>
+            <p>{foodData.bathroom}</p>
           </div>
           <div className="mb-4 mx-auto lg:ml-20">
             <p className="font-bold">Reviews:</p>
@@ -238,63 +163,57 @@ const FoodPage = ({ foodData }) => {
           </div>
         </div>
 
-         <div className="w-full md:w-1/2 md:pl-3 flex flex-wrap justify-">
-          <div className="w-full md:w-1/2 mb-4">
-            <img className="w-full h-auto rounded" src={Food0} alt="Room 9" />
+        {/* Rooms Grid */}
+        <div className="w-full md:w-1/2 md:pl-3 grid grid-cols-2 gap-4">
+          <div className="flex flex-col justify-between">
+            <img className="w-full h-auto rounded mb-4" src={Food0} alt="Room 9" />
+            <img className="w-full h-auto rounded" src={Food2} alt="Room 7" />
           </div>
-          <div className="w-full md:w-1/2 mb-4">
-            <img className="w-full h-auto rounded" src={Food2} alt="Room 8" />
+          <div className="flex flex-col justify-between">
+            <img className="w-full h-auto rounded mb-4" src={Food3} alt="Room 8" />
+            <img className="w-full h-auto rounded" src={Food4} alt="Room 6" />
           </div>
-          <div className="w-full md:w-1/2 mb-4">
-            <img className="w-full h-auto rounded" src={Food3} alt="Room 7" />
-          </div>
-          <div className="w-full md:w-1/2 mb-4">
-            <img className="w-full h-auto rounded" src={Food3} alt="Room 6" />
-          </div>
-        </div> 
-
-
+        </div>
       </div>
-            {/* Host Information */}
-  <div className="flex items-center mt-0 bg-white p-4 ">
-  <div className="w-1/4 flex justify-center">
-    <img className="w-20 h-20 rounded-full" src={Contact} alt="Host Profile" />
-  </div>
-  <div className="w-3/4 pl-4">
-    <p className="font-bold">Host Name</p>
-    <p className="font-bold">Phone: 07xxxxxxxx</p>
-    <p className="font-bold">Email:host@gmail.com</p>
-    <p className="font-bold">Postal Address:</p>
-    <p>Description of the host goes here...</p>
-  </div>
-</div>
+
+      {/* Host Information */}
+      <div className="flex items-center mt-4 bg-white p-4">
+        <div className="w-1/4 flex justify-center">
+          <img className="w-20 h-20 rounded-full" src={Contact} alt="Host Profile" />
+        </div>
+        <div className="w-3/4 pl-4">
+          <p className="font-bold">Host Name</p>
+          <p className="font-bold">Phone: 07xxxxxxxx</p>
+          <p className="font-bold">Email: host@gmail.com</p>
+          <p className="font-bold">Postal Address:</p>
+          <p>Description of the host goes here...</p>
+        </div>
+      </div>
+
       {/* Hotel Description */}
       <div className="bg-white p-4">
-  <p className="font-bold mb-2">Hotel Description:</p>
-  <h1>Free cancellation after payment</h1>
-  <h1>Hotel in a rental area</h1>
-  <h1>Shared common places</h1>
-  <h1>Meals available at any area within the rental</h1>
-  <h1>Meal payment done after Service</h1>
-  <h1>Relaxation area available</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nisi et arcu tincidunt tincidunt vel a sem. In hac habitasse platea dictumst. Integer nec odio. Praesent libero.
-  </p>
-  <div className="w-1/2 flex justify-center mt-6">
-  <Link to="/login" className="bg-blue-500 w-1/2 text-white rounded hover:bg-blue-700 flex items-center justify-center py-2">
-          RESERVE 
-          
-        </Link>
-
-  </div>
-</div>
-
+        <p className="font-bold mb-2">Hotel Description:</p>
+        <p>Free cancellation after payment</p>
+        <p>Hotel in a rental area</p>
+        <p>Shared common places</p>
+        <p>Meals available at any area within the rental</p>
+        <p>Meal payment done after Service</p>
+        <p>Relaxation area available</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nisi et arcu tincidunt tincidunt vel a sem. In hac habitasse platea dictumst. Integer nec odio. Praesent libero.
+        </p>
+        <div className="w-1/2 flex justify-center mt-6">
+          <Link to="/login" className="bg-blue-500 w-1/2 text-white rounded hover:bg-blue-700 flex items-center justify-center py-2">
+            RESERVE
+          </Link>
+        </div>
+      </div>
     </div>
-
   );
 };
 
 export default FoodPage;
+
 
 
 
