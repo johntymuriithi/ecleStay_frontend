@@ -14,7 +14,7 @@
 
 
 // const HomePage = () => {
-//   const servicesData = [
+//   const data = [
 //     {id:0, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Food0},
 //     {id:7, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Food7},
 //     {id:5, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Food5},
@@ -41,7 +41,7 @@
 //     <div className="bg-gray-300 w-full min-h-screen p-4 lg:overflow-hidden">
 //     <h1 className="text-3xl font-bold mb-6 text-center">Explore Our Services</h1>
 //     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//       {servicesData.slice(0, visibleServiceCount).map(service => (
+//       {data.slice(0, visibleServiceCount).map(service => (
 //         <div key={service.id} className="border rounded-lg overflow-hidden shadow-lg">
 //           <img src={service.imageUrl} alt={service.name} className="w-full h-72 object-cover" />
 //           <div className="p-4">
@@ -52,7 +52,7 @@
 //         </div>
 //       ))}
 //     </div>
-//     {visibleServiceCount < servicesData.length && (
+//     {visibleServiceCount < data.length && (
 //       <div className="flex justify-center items-center mt-6">
 //         <button
 //           onClick={showMoreServices}
@@ -110,28 +110,28 @@
 import React, { useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { ServicesContext } from '../ServicesProvider';
+import { useNavigate } from 'react-router-dom';
 
-
-
-const HomePage = () => {
+const HomePage = ({data}) => {
+  const navigate = useNavigate();
+  const navigateToMap = () => {
+    navigate('/map');
+  };
   const [visibleServiceCount, setVisibleServiceCount] = useState(8);
-  const services = useContext(ServicesContext);
-  const servicesData = services.servicesData;
-  console.log(servicesData);
-
+  
   const showMoreServices = () => {
     setVisibleServiceCount(prevCount => prevCount + 8); // Increase by 8 to show more services
   };
 
   return (
-    <div className="bg-gray-300 w-full min-h-screen p-4 lg:overflow-hidden">
-      <h1 className="text-3xl font-bold mb-6 text-center">Explore Our Services</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {servicesData.slice(0, visibleServiceCount).map(service => (
+    <div className="bg-gray-300 w-full h-full px-4 lg:overflow-hidden mt-5 pt-48 md:pt-64 ">
+      {/* <h1 className="text-3xl font-bold mb-6 text-center">Explore Our Services</h1> */}
+      <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+        {data.slice(0, visibleServiceCount).map(service => (
 
           <div key={service.service_id} className="border rounded-lg overflow-hidden shadow-lg">
             <Link to={`/service/${service.service_id}`}>
-              <img src={service.images[0].service_image} alt={service.service_name} className="w-full h-72 object-cover" />
+              <img src={service.images[0].service_image} alt={service.service_name} className="w-5/4 h-56 md:h-3/4  object-cover" />
             </Link>
             <div className="p-4">
               <h2 className="text-xl font-bold">{service.service_name}</h2>
@@ -143,7 +143,7 @@ const HomePage = () => {
           </div>
         ))}
       </div>
-      {visibleServiceCount < servicesData.length && (
+      {visibleServiceCount < data.length && (
         <div className="flex justify-center items-center mt-6">
           <button
             onClick={showMoreServices}
@@ -153,6 +153,10 @@ const HomePage = () => {
           </button>
         </div>
       )}
+
+<button onClick={navigateToMap}>Show Map</button>
+
+
       <footer className=" text-white mt-12 p-4">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
  

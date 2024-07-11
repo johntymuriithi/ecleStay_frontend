@@ -222,6 +222,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { setToken } from '../Services/authService';
 
  const Login = () => {
   const location = useLocation();
@@ -258,7 +259,10 @@ import { useLocation } from 'react-router-dom';
         console.error('Error:', errorData);
       } else {
         const responseData = await response.json();
+
+         setToken(responseData.data.token);
         console.log('Success:', responseData);
+        
         navigate('/booking');
       }
     } catch (error) {

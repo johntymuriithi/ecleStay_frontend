@@ -1,176 +1,39 @@
 
-// import React, {useContext, useState } from 'react';
-// import { useParams} from 'react-router-dom';
-// import { ServicesContext } from '../ServicesProvider';
-
-// const Booking = () => {
-//   const services = useContext(ServicesContext);
-//   const servicesData = services.servicesData;
-//   const [price, setPrice]  =useState(500);
-//   const { id } = useParams();
- 
-//   const service = servicesData.find(service => service.service_id === parseInt(id, 10));
-//   console.log(service);
-
-//   if (!service) {
-//     return <p>Service not found</p>;
-//   }
-
-//   const handlePrice = (e) => {
-//     e.preventDefault();
-
-//     setPrice(service.price * e.target.value);
-//   }
-
-//   return (
-//     <div className="min-h-screen bg-blue-500 py-12 px-4 ">
-//       <div className='bg-white md:ml-8 ml-0 md:mr-8 mr-0'>
-//         {/* Title */}
-//         <div className="text-center">
-//           <h1 className="text-3xl font-bold mb-4 mt-4">Booking Page</h1>
-//           <p className="text-gray-600 mb-8">Experience something new every moment</p>
-//         </div>
-
-//         {/* Rooms */}
-//         <div className="flex justify-center md:space-x-4 mb-8">
-
-//           {service.images.map((image, index) => (
-//             <div key={index} className="max-w-xs rounded overflow-hidden shadow-lg">
-//               <img className="w-full" src={image.service_image} alt={service.service_name} />
-//               <div className="px-6 py-4">
-//                 <div className="font-bold text-xl mb-2">{service.service_name}</div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Booking Form */}
-//         <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg ">
-//                 {/* Amount */}
-//         <div className="mb-4">
-//             <label className="block text-lg font-medium text-gray-700">amount</label>
-//             <input
-//               type="text"
-//               className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               value={price}
-//               disabled
-              
-//             />
-//           </div>
-
-
-//           {/* City */}
-//           <div className="mb-4">
-//             <label className="block text-lg font-medium text-gray-700">city</label>
-//             <input
-//               type="text"
-//               className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               value={service.city}
-              
-//             />
-//           </div>
-
-//           {/* billing address */}
-
-//           <div className="mb-4">
-//             <label className="block text-lg font-medium text-gray-700">billing_Address</label>
-//             <input
-//               type="text"
-//               className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               value={service.billing_address}
-              
-//             />
-//           </div>
-
-//           {/* state */}
-//           <div className="mb-4">
-//             <label className="block text-lg font-medium text-gray-700">State</label>
-//             <input
-//               type="text"
-//               className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               value={service.state}
-              
-//             />
-//           </div>
-
-//           {/* code */}
-
-//           <div className="mb-4">
-//             <label className="block text-lg font-medium text-gray-700">state</label>
-//             <input
-//               type="number"
-//               className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               value={service.zip_code}
-//               // readOnly
-//             />
-//           </div>
-
-//           {/* Number of Guests */}
-//           <div className="mb-4">
-//             <label className="block text-sm font-medium text-gray-700">Number of Guests</label>
-//             <input
-//               type="number"
-//               className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               onChange={handlePrice}
-//               // value={service.guests}
-              
-//             />
-//           </div>
-
-//           {/* Check-in Date and Time */}
-//           <div className="mb-4">
-//             <label className="block text-sm font-medium text-gray-700">Check-in Date and Time</label>
-//             <input
-//               type="datetime-local"
-//               className="form-input mt-1 block w-full text-lg rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 border-black border-2"
-//               defaultValue={service.start_date}
-//             />
-//           </div>
-
-//           {/* Check-out Date and Time */}
-//           <div className="mb-4">
-//             <label className="block text-sm font-medium text-gray-700">Check-out Date and Time</label>
-//             <input
-//               type="datetime-local"
-//               className="form-input mt-1 block w-full border-black border-2 text-lg rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-//               defaultValue={service.end_date}
-//             />
-//           </div>
-
-          
-//           {/* Submit Button */}
-//           <div className="text-center">
-//             <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Submit</button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Booking;
-
-
-
-//import React, { useContext, useState } from 'react';
+// // Booking.js
+// import React, { useContext, useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
 // import { ServicesContext } from '../ServicesProvider';
+// import LoginModal from '../LoginModal';
+// import { getToken,setToken, clearToken  } from '../../Services/authService';
+// import ReviewModal from './ReviewModal';
 
+
+//  // Import the LoginModal component
 
 // const Booking = () => {
 //   const services = useContext(ServicesContext);
 //   const servicesData = services.servicesData;
-//   const [price, setPrice] = useState(500);
-//   const [guests, setGuests] = useState(1);
+//   const [amount, setPrice] = useState(500);
+//   const [guests_number, setGuests] = useState(1);
 //   const [startDate, setStartDate] = useState('');
 //   const [endDate, setEndDate] = useState('');
+//   const [city, setCity] = useState('');
+//   const [billing, setBilling] = useState('');
+//   const [state, setState] = useState('');
+//   const [code, setCode] = useState('');
 //   const [error, setError] = useState('');
+//   const[bookingSuccess, setBookingSuccess] =useState("false");
 //   const [isLoggedIn, setIsLoggedIn] = useState(false);
 //   const [showLoginModal, setShowLoginModal] = useState(false);
 //   const { id } = useParams();
 
 //   const service = servicesData.find(service => service.service_id === parseInt(id, 10));
-//   console.log(service);
+//   // console.log(service);
+//   useEffect(() => {
+//     // Check if user is logged in on component mount
+//     setIsLoggedIn(!!getToken()); // Update isLoggedIn state based on token presence
+//   }, []);
+
 
 //   if (!service) {
 //     return <p>Service not found</p>;
@@ -182,28 +45,68 @@
 //     setGuests(numGuests);
 //     setPrice(service.price * numGuests);
 //   };
-
-
-
+//   const handleCity = (e) => {
+//     e.preventDefault();
+//     setCity(e.target.value)
+   
+//   };
+//   const handleBilling = (e) => {
+//     e.preventDefault();
+//     setBilling(e.target.value)
+   
+//   };
+//   const handleCode = (e) => {
+//     e.preventDefault();
+//     setCode(e.target.value)                                                                                                                                                                                                                                                                                                               
+   
+//   };
+//   const handleState = (e) => {
+//     e.preventDefault();
+//     setState(e.target.value)
+   
+//   };
+//   const handleStartDate = (e) => {
+//     e.preventDefault();
+//     setStartDate(e.target.value)
+   
+//   };
+//   const handleEndDate = (e) => {
+//     e.preventDefault();
+//     setEndDate(e.target.value)
+   
+//   };
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
+//     const token = getToken();
+    
+
+//     if (!token) {
+//       setError('You must be logged in to book a service');
+//       setShowLoginModal(true);
+//       return;
+//     }
+
 //     const bookingData = {
-//       price,
-//       city: service.city,
-//       billing_address: service.billing_address,
-//       state: service.state,
-//       zip_code: service.zip_code,
-//       guests,
-//       start_date: startDate,
+//       amount,
+//       service_id: service.service_id,
+//       city: city,
+//       billing_address: billing,
+//        state: state,
+//       zip_code: code,
+//       guests_number,
+//       begin_date: startDate,
 //       end_date: endDate,
 //     };
 
+
 //     try {
+//       // console.log(bookingData);
 //       const response = await fetch('/api/place/order', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
+//           'Authorization': `Bearer ${token}`
 //         },
 //         body: JSON.stringify(bookingData),
 //       });
@@ -214,7 +117,9 @@
 //       } else {
 //         const responseData = await response.json();
 //         console.log('Booking successful:', responseData);
-//         // Optionally navigate or give user feedback
+//         setBookingSuccess('Booking Successful');
+//          alert('Booking successful!');
+      
 //       }
 //     } catch (error) {
 //       setError('Network error');
@@ -222,104 +127,158 @@
 //     }
 //   };
 
+//   const loginHandler = (token) => {
+//     setToken(token); // Store token in localStorage
+//     setIsLoggedIn(true); // Update login state
+//     setShowLoginModal(false); // Close login modal
+//   };
+
+//   const logoutHandler = () => {
+//     clearToken(); // Clear token from localStorage
+//     setIsLoggedIn(false); // Update login state
+//   };
+
+
 //   return (
-//     <div className="min-h-screen bg-blue-500 py-12 px-4">
-//       <div className='bg-white md:ml-8 ml-0 md:mr-8 mr-0'>
-//         <div className="text-center">
-//           <h1 className="text-3xl font-bold mb-4 mt-4">Booking Page</h1>
-//           <p className="text-gray-600 mb-8">Experience something new every moment</p>
-//         </div>
-//         <div className="flex justify-center md:space-x-4 mb-8">
-//           {service.images.map((image, index) => (
-//             <div key={index} className="max-w-xs rounded overflow-hidden shadow-lg">
-//               <img className="w-full" src={image.service_image} alt={service.service_name} />
-//               <div className="px-6 py-4">
-//                 <div className="font-bold text-xl mb-2">{service.service_name}</div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//         <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-//           <form onSubmit={handleSubmit}>
-//             {error && <p style={{ color: 'red' }}>{error}</p>}
+//     <div className="flex flex-col items-center min-h-screen bg-gray-100">
+//       <div className="w-full max-w-3xl p-8 bg-white rounded-lg shadow-md mt-10">
+//         <h1 className="text-3xl font-bold mb-6 text-center">Booking Form</h1>
+
+//         {isLoggedIn ? (
+//                   <form onSubmit={handleSubmit}>
+//                   {/* Form inputs */}
+//                   <button type="submit">Submit Booking</button>
+//                 </form>
+//               ) : (
+//                 <div>
+//                   <p>{error}</p>
+//                   <button onClick={() => setShowLoginModal(true)}>Login to Book</button>
+//                 </div>
+//               )}
+
+
+//         <p className="text-lg font-semibold mb-4 text-center">{service.service_title}</p>
+//         <form onSubmit={handleSubmit} className="space-y-4">
+//           {/* Guest */}
+//           <div>
+//             <label className="block text-lg font-medium text-gray-700">Guests</label>
+//             <input
+//               type="number"
+//               value={guests_number}
+//               onChange={handlePrice}
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               min="1"
+//             />
+//           </div>
+
+
+//           {/* city */}
+
+//           <div className="mb-4">
+//             <label className="block text-lg font-medium text-gray-700">city</label>
+//             <input
+//               type="text"
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               value={city}
+//               onChange={handleCity}
+              
+//             />
+//           </div>
+//           {/* Billing address */}
+
+//           <div className="mb-4">
+//             <label className="block text-lg font-medium text-gray-700">billing_Address</label>
+//             <input
+//               type="text"
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               value={billing}
+//               onChange={handleBilling}
+              
+//             />
+//           </div>
+
+//                     {/* state */}
 //             <div className="mb-4">
-//               <label className="block text-lg font-medium text-gray-700">Amount</label>
-//               <input
-//                 type="text"
-//                 className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg"
-//                 value={price}
-//                 disabled
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-lg font-medium text-gray-700">City</label>
-//               <input
-//                 type="text"
-//                 className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg"
-//                 value={service.city}
-                
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-lg font-medium text-gray-700">Billing Address</label>
-//               <input
-//                 type="text"
-//                 className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg"
-//                 value={service.billing_address}
-                
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-lg font-medium text-gray-700">State</label>
-//               <input
-//                 type="text"
-//                 className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg"
-//                 value={service.state}
-                
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-lg font-medium text-gray-700">Zip Code</label>
-//               <input
-//                 type="number"
-//                 className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg"
-//                 value={service.zip_code}
-                
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-sm font-medium text-gray-700">Number of Guests</label>
-//               <input
-//                 type="number"
-//                 className="form-input mt-1 block w-full py-2 border-black border-2 rounded-md shadow-sm text-lg"
-//                 onChange={handlePrice}
-//                 value={guests}
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-sm font-medium text-gray-700">Check-in Date and Time</label>
-//               <input
-//                 type="datetime-local"
-//                 className="form-input mt-1 block w-full text-lg rounded-md shadow-sm border-black border-2"
-//                 value={startDate}
-//                 onChange={(e) => setStartDate(e.target.value)}
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-sm font-medium text-gray-700">Check-out Date and Time</label>
-//               <input
-//                 type="datetime-local"
-//                 className="form-input mt-1 block w-full text-lg rounded-md shadow-sm border-black border-2"
-//                 value={endDate}
-//                 onChange={(e) => setEndDate(e.target.value)}
-//               />
-//             </div>
-//             <div className="text-center">
-//               <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Submit</button>
-//             </div>
-//           </form>
-//         </div>
+//             <label className="block text-lg font-medium text-gray-700">State</label>
+//             <input
+//               type="text"
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               value={state}
+//               onChange={handleState}
+              
+//             />
+//           </div>
+
+//           {/* code */}
+
+//           <div className="mb-4">
+//             <label className="block text-lg font-medium text-gray-700">code</label>
+//             <input
+//               type="number"
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               value={code}
+//               onChange={handleCode}
+//               // readOnly
+//             />
+//           </div>
+
+          
+//           {/* Date */}
+
+//           <div className="mb-4">
+//             <label className="block text-lg font-medium text-gray-700">Check-in Date and Time</label>
+//             <input
+//               type="datetime-local"
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               value={startDate}
+//               onChange={handleStartDate}
+//             />
+//           </div>
+
+//                     {/* Check-out Date and Time */}
+//                     <div className="mb-4">
+//             <label className="block text-sm font-medium text-gray-700">Check-out Date and Time</label>
+//             <input
+//               type="datetime-local"
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+//               value={endDate}
+//               onChange={handleEndDate}
+//             />
+//           </div>
+
+//           <div>
+//             <label className="block text-lg font-medium text-gray-700">Price</label>
+//             <input
+//               type="text"
+//               value={amount}
+//               readOnly
+//               className="w-full mt-1 p-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:border-blue-500"
+//             />
+//           </div>
+//           {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+//           <div className="mt-6">
+//             <button
+//               type="submit"
+//               className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
+//             >
+//               Book Now
+//             </button>
+//           </div>
+//         </form>
 //       </div>
+//       <LoginModal
+//         show={showLoginModal}
+//         onClose={() => setShowLoginModal(false)}
+//         onLoginSuccess={() => setIsLoggedIn(true)}
+//       />
+//            {bookingSuccess && (
+//         <ReviewModal
+//           show={bookingSuccess}
+//           onClose={() => setBookingSuccess(false)}
+//           onBookingSuccess={() => setBookingSuccess(false)}
+//         />
+//       )}
+
 //     </div>
 //   );
 // };
@@ -327,56 +286,71 @@
 // export default Booking;
 
 
-
 // Booking.js
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ServicesContext } from '../ServicesProvider';
 import LoginModal from '../LoginModal';
- // Import the LoginModal component
+import { getToken, setToken, clearToken } from '../../Services/authService';
 
 const Booking = () => {
   const services = useContext(ServicesContext);
   const servicesData = services.servicesData;
-  const [price, setPrice] = useState(500);
-  const [guests, setGuests] = useState(1);
+  const [amount, setPrice] = useState(500);
+  const [guests_number, setGuests] = useState(1);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [city, setCity] = useState('');
+  const [billing, setBilling] = useState('');
+  const [state, setState] = useState('');
+  const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const { id } = useParams();
 
   const service = servicesData.find(service => service.service_id === parseInt(id, 10));
-  // console.log(service);
+
+  useEffect(() => {
+    setIsLoggedIn(!!getToken());
+  }, []);
 
   if (!service) {
     return <p>Service not found</p>;
   }
 
   const handlePrice = (e) => {
-    e.preventDefault();
     const numGuests = parseInt(e.target.value, 10);
     setGuests(numGuests);
     setPrice(service.price * numGuests);
   };
 
+  const handleCity = (e) => setCity(e.target.value);
+  const handleBilling = (e) => setBilling(e.target.value);
+  const handleCode = (e) => setCode(e.target.value);
+  const handleState = (e) => setState(e.target.value);
+  const handleStartDate = (e) => setStartDate(e.target.value);
+  const handleEndDate = (e) => setEndDate(e.target.value);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isLoggedIn) {
+    const token = getToken();
+
+    if (!token) {
       setError('You must be logged in to book a service');
       setShowLoginModal(true);
       return;
     }
 
     const bookingData = {
-      price,
-      city: service.city,
-      billing_address: service.billing_address,
-      state: service.state,
-      zip_code: service.zip_code,
-      guests,
-      start_date: startDate,
+      amount,
+      service_id: service.service_id,
+      city: city,
+      billing_address: billing,
+      state: state,
+      zip_code: code,
+      guests_number,
+      begin_date: startDate,
       end_date: endDate,
     };
 
@@ -385,6 +359,7 @@ const Booking = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(bookingData),
       });
@@ -395,6 +370,8 @@ const Booking = () => {
       } else {
         const responseData = await response.json();
         console.log('Booking successful:', responseData);
+        setBookingSuccess(true);
+        // alert('Booking successful!');
       }
     } catch (error) {
       setError('Network error');
@@ -402,70 +379,134 @@ const Booking = () => {
     }
   };
 
+  // const handleBookingSuccess = () => {
+  //   setBookingSuccess(false);
+  //   clearToken();
+  //   setIsLoggedIn(false);
+  // };
+
+  const loginHandler = (token) => {
+    setToken(token);
+    setIsLoggedIn(true);
+    setShowLoginModal(false);
+  };
+
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center min-h-screen bg-gray-100 pt-16">
       <div className="w-full max-w-3xl p-8 bg-white rounded-lg shadow-md mt-10">
-        <h1 className="text-3xl font-bold mb-6 text-center">Booking Form</h1>
-        <p className="text-lg font-semibold mb-4 text-center">{service.service_title}</p>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <h1 className="text-3xl font-bold mb-6 text-center ">Booking Form</h1>
+        <div className="flex justify-between mb-6">
+          <img src="/images/room1.jpg" alt="Room 1" className="w-1/3 h-auto mx-2 rounded-lg" />
+          <img src="/images/room2.jpg" alt="Room 2" className="w-1/3 h-auto mx-2 rounded-lg" />
+          <img src="/images/room3.jpg" alt="Room 3" className="w-1/3 h-auto mx-2 rounded-lg" />
+        </div>
+
+        {isLoggedIn ? (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label className="block text-lg font-medium text-gray-700">Guests</label>
+              <input
+                type="number"
+                value={guests_number}
+                onChange={handlePrice}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                min="1"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-medium text-gray-700">City</label>
+              <input
+                type="text"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                value={city}
+                onChange={handleCity}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-medium text-gray-700">Billing Address</label>
+              <input
+                type="text"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                value={billing}
+                onChange={handleBilling}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-medium text-gray-700">State</label>
+              <input
+                type="text"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                value={state}
+                onChange={handleState}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-medium text-gray-700">Code</label>
+              <input
+                type="number"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                value={code}
+                onChange={handleCode}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-medium text-gray-700">Check-in Date and Time</label>
+              <input
+                type="datetime-local"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                value={startDate}
+                onChange={handleStartDate}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-lg font-medium text-gray-700">Check-out Date and Time</label>
+              <input
+                type="datetime-local"
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                value={endDate}
+                onChange={handleEndDate}
+              />
+            </div>
+
+            <div>
+              <label className="block text-lg font-medium text-gray-700">Price</label>
+              <input
+                type="text"
+                value={amount}
+                readOnly
+                className="w-full mt-1 p-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
+              >
+                Book Now
+              </button>
+            </div>
+          </form>
+        ) : (
           <div>
-            <label className="block text-lg font-medium text-gray-700">Guests</label>
-            <input
-              type="number"
-              value={guests}
-              onChange={handlePrice}
-              className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              min="1"
-            />
+            <p>{error}</p>
+            <button onClick={() => setShowLoginModal(true)}>Login to Book</button>
           </div>
-          <div>
-            <label className="block text-lg font-medium text-gray-700">Start Date</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium text-gray-700">End Date</label>
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-lg font-medium text-gray-700">Price</label>
-            <input
-              type="text"
-              value={price}
-              readOnly
-              className="w-full mt-1 p-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          {error && <p className="text-red-500 text-center mt-4">{error}</p>}
-          <div className="mt-6">
-            <button
-              type="submit"
-              className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
-            >
-              Book Now
-            </button>
-          </div>
-        </form>
+        )}
       </div>
       <LoginModal
         show={showLoginModal}
         onClose={() => setShowLoginModal(false)}
-        onLoginSuccess={() => setIsLoggedIn(true)}
+        onLoginSuccess={loginHandler}
       />
     </div>
   );
 };
 
 export default Booking;
-
-
-

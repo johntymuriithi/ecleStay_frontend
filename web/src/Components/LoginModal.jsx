@@ -1,8 +1,12 @@
 // LoginModal.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { setToken } from '../Services/authService';
+import { Link } from 'react-router-dom';
+
 
 const LoginModal = ({ show, onClose, onLoginSuccess }) => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -33,7 +37,9 @@ const LoginModal = ({ show, onClose, onLoginSuccess }) => {
         console.error('Error:', errorData);
       } else {
         const responseData = await response.json();
+        setToken(responseData.data.token);
         console.log('Success:', responseData);
+       
         onLoginSuccess();
         onClose();
       }
@@ -167,6 +173,14 @@ const LoginModal = ({ show, onClose, onLoginSuccess }) => {
         <button className="mt-4 w-full py-2 bg-red-500 text-white rounded-lg hover:bg-red-600" onClick={onClose}>
           Close
         </button>
+        <div className="mt-6 text-center">
+                <p>
+                  Don't have an account?{' '}
+                  <Link to="/sign-up" className="text-blue-600">
+                    SignUp
+                  </Link>
+                </p>
+              </div>
       </div>
     </div>
   );

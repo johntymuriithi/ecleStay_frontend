@@ -2,10 +2,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import money from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/money.png';
-import { data } from 'autoprefixer';
+import weather from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/weather.png';
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [currencies, setCurrencies] = useState([]);
+  const [conversionRates, setConversionRates] = useState([]);
   const [data, setData] = useState([]);
   const dropdownRef = useRef(null);
 
@@ -52,6 +55,7 @@ const Navbar = () => {
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    
   };
 
   const handleClickOutside = (event) => {
@@ -73,25 +77,25 @@ const Navbar = () => {
   }, [isDropdownOpen]);
 
   return (
-    <nav className="bg-white md:h-48  h-12 w-full relative flex items-center justify-center">
+    <nav className="bg-white md:h-36 fixed top-0 h-20  w-full  z-index: 1000 flex items-center justify-center  border-b border-gray-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         
             {/* Logo */}
+            
         <div className="flex items-center h-full ">
+        <Link to="/HomePage">
           <img
             className=" h-8 w-8 md:h-14 md:w-14 lg:h-16 lg:w-16"
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
             alt="EcleStay"
           />
+          <h3 className='font-bold text-black'>EcleStay</h3>
+          </Link>
         </div>
                  {/* Services */}
         <div className="hidden sm:flex flex-1 items-center justify-center">
-          {/* <div className="flex mx-auto flex-col items-center justify-center bg-white rounded-full shadow-lg p-4 space-y-0 sm:flex-row sm:items-stretch sm:justify-center ">
-            {data.map((category) => {
-             return <Link to="experiences,suites" key={category.category_id} className="rounded-md px-7 py-2 text-xl font-medium text-gray-300 hover:bg-gray-700 hover:text-white">{category.category_name}</Link>
-            })} 
-          </div> */}
-                    <div className="flex mx-auto flex-col items-center justify-center bg-white rounded-full shadow-lg p-4 space-y-0 sm:flex-row sm:items-stretch sm:justify-center ">
+
+          <div className="flex mx-auto flex-col items-center justify-center bg-white rounded-full shadow-lg p-4 space-y-0 sm:flex-row sm:items-stretch sm:justify-center ">
             {data.map((category) => (
               <Link 
                 to={`/${category.category_name.toLowerCase()}`} 
@@ -106,34 +110,30 @@ const Navbar = () => {
 
                   {/* icons */}
         <div className="absolute inset-y-0 right-0 flex items-center pr-4 sm:pr-6 lg:pr-8">
-          <button
-            type="button"
-            className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span className="sr-only">View notifications</span>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-              />
-            </svg>
-          </button>
 
-          <button
-            type="button"
-            className='relative  p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
-            >
-              <span className="sr-only">View notifications</span>
-              <img className='size{5}' src={money} alt="Host Profile" />
-          </button>
+          {/* weather */}
+        <Link to="/weather">
+           <button
+             type="button"
+             className="relative rounded-full bg-white p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+             >
+             <span className="sr-only">View weather</span>
+             <img
+             src={weather}
+             alt="Weather icon"
+             className="h-6 w-6"
+             />
+            </button>
+          </Link>
+          <Link to="/currency">
+             <button
+               type="button"
+               className="relative p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              >
+               <span className="sr-only">Money</span>
+               <img className="size-5 h-6 w-6" src={money} alt="Currency Selector" />
+            </button>
+          </Link>
 
           <div className="relative ml-3" ref={dropdownRef}>
             <button
@@ -160,9 +160,15 @@ const Navbar = () => {
                 aria-labelledby="user-menu-button"
                 tabIndex="-1"
               >
-              <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1">
-                Your Profile
-              </Link>
+            <Link to="/profile">
+           <button
+             type="button"
+             className="block px-4 py-2 text-sm text-gray-700"
+             >Profile
+            </button>
+          </Link>
+
+
               <Link to="/settings" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1">
                 Settings
               </Link>
@@ -230,20 +236,24 @@ const Navbar = () => {
                 {/* Mobile menu */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} sm:hidden`} id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-        <Link to="suites" className="rounded-md px-7 py-2 text-xl font-medium text-black hover:bg-gray-700 hover:text-white">Accommodations</Link>
+
+        {/* {data.map((category) => (
+              <Link 
+                to={`/${category.category_name.toLowerCase()}`} 
+                key={category.category_id} 
+                // className="rounded-md px-7 py-2 text-xl font-medium text-black hover:bg-gray-700 hover:text-white"
+                  className="rounded-md px-7 py-2 text-xl font-medium text-black hover:bg-gray-700 hover:text-white"
+              >
+                {category.category_name}
+              </Link>
+            ))} */}
+         <Link to="accommodations" className="rounded-md px-7 py-2 text-xl font-medium text-black hover:bg-gray-700 hover:text-white">Accommodations</Link>
           <Link to="experiences" className="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-700 hover:text-white">Experiences</Link>
-          <Link to="food" className="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-700 hover:text-white">Food</Link>
+          <Link to="food" className="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-700 hover:text-white">Food</Link> 
         </div>
       </div>
-
     </nav>
   );
 };
 
 export default Navbar;
-
-
-
-           
-
-
