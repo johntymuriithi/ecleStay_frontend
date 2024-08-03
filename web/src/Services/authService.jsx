@@ -1,8 +1,7 @@
-// authService.js
 
+  //  token storage
 export const getToken = () => {
   return localStorage.getItem('jwtToken');
-
 };
 
 export const setToken = (token) => {
@@ -16,6 +15,21 @@ export const clearToken = () => {
 
 export const getCurrentUser = () => {
   return localStorage.getItem('jwtToken');
+};
+
+    //  user profile picture
+
+
+export const setPic = (pic) => {
+  localStorage.setItem('pic', pic);
+};
+
+export const clearPic = () => {
+  localStorage.removeItem('pic');
+};
+
+export const getUserPic = () => {
+  return localStorage.getItem('pic');
 };
 
 

@@ -35,7 +35,7 @@ const Weather = () => {
   };
 
   return (
-    <div className='w-full h-screen bg-gray-300'>
+    <div className='w-full h-screen bg-gray-300 pt-40'>
     <div className="max-w-md mx-auto mt-0 p-5 bg-white shadow-lg rounded-lg">
       <form onSubmit={handleSubmit} className="flex items-center space-x-4">
         <input 

@@ -103,8 +103,6 @@
 
 import React, { useContext } from 'react';
 import { ServicesContext } from '../ServicesProvider';
-import { Link } from 'react-router-dom';
-import Contact from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Contact.png';
 import HomePage from './HomePage';
      
 const FoodPage = () => {
@@ -112,7 +110,7 @@ const FoodPage = () => {
   const foodData = services.foodData;
 
   return (
-    <div className='text-black bg-red-800'>
+    <div className='text-black bg-white'>
       <HomePage data={foodData} />
       
     </div>

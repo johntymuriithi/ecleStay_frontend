@@ -76,7 +76,7 @@ const Accomodations = () => {
   const accommodationsData = services.accommodationsData;
 
   return (
-    <div className='text-black bg-red-800'>
+    <div className='text-black bg-white'>
       <HomePage data={accommodationsData} />
       
     </div>

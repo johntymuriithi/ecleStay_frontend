@@ -22,9 +22,8 @@ const CitiesPage = () => {
     }
   }, [citiesData, navigate]);
 
-  // If roomData is null, render a loading message or nothing
   if (!citiesData) {
-    return null; // You can render a loading spinner or message here
+    return null; 
   }
 
   return (

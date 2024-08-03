@@ -4,11 +4,11 @@ import HomePage from './HomePage';
      
 const Events = () => {
   const services = useContext(ServicesContext);
-  const foodData = services.foodData;
+  const eventData = services.eventData;
 
   return (
     <div className='text-black bg-red-800'>
-      <HomePage data={foodData} />
+      <HomePage data={eventData} />
       
     </div>
   )

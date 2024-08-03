@@ -6,7 +6,6 @@ import beach1 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/beach1.jpg
 import beach2 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/beach2.jpg';
 import beach3 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/beach3.jpg';
 import beach4 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/beach4.jpg';
-import beach5 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Room5.jpg';
 import Contact from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Contact.png';
 
 const BeachPage = () => {
@@ -20,9 +19,8 @@ const BeachPage = () => {
     }
   }, [beachData, navigate]);
 
-  // If roomData is null, render a loading message or nothing
   if (!beachData) {
-    return null; // You can render a loading spinner or message here
+    return null; 
   }
 
   return (
@@ -61,7 +59,6 @@ const BeachPage = () => {
           </div>
         </div>
 
-        {/* Rooms Grid */}
         <div className="w-full md:w-1/2 md:pl-3 grid grid-cols-2 gap-4">
           <div className="flex flex-col justify-between">
             <img className="w-full h-auto rounded mb-4" src={beach1} alt="beach1" />
@@ -74,7 +71,6 @@ const BeachPage = () => {
         </div>
       </div>
 
-      {/* Host Information */}
       <div className="flex items-center mt-4 bg-white p-4">
         <div className="w-1/4 flex justify-center">
           <img className="w-20 h-20 rounded-full" src={Contact} alt="Host Profile" />
@@ -88,7 +84,6 @@ const BeachPage = () => {
         </div>
       </div>
 
-      {/* Hotel Description */}
       <div className="bg-white p-4">
         <p className="font-bold mb-2">Hotel Description:</p>
         <p>Free cancellation after payment</p>

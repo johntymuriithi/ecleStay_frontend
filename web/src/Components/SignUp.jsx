@@ -93,6 +93,7 @@ const Signup = () => {
 
                 if (response.data.status) {
                     alert('Signup successful');
+                    
                 } else {
                     alert('Signup failed: ' + response.data.error);
                 }

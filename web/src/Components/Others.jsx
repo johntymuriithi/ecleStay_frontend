@@ -107,7 +107,62 @@ const CitiesPage = () => {
 };
 
 export default CitiesPage;
-
+reset form
+    // <div className='w-3/4 h-full flex md:pt-60 pt-52 items-center justify-center ml-24 mt-10 overflow-hidden'>
+    //   <div className='bg-blue-100 rounded-lg w-full shadow-lg max-w-md py-6 space-y-6 '>
+    //     <h2 className='text-blue font-bold flex text-center justify-center text-2xl ml'>Reset Password</h2>
+    //     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+    //       <div className='space-y-1'>
+    //         <label htmlFor="email" className="block text-sm font-medium text-gray-700 ml-4">Email</label>
+    //         <input 
+    //           id="email"
+    //           name="email"
+    //           type='email'
+    //           value={email}
+    //           onChange={(e) => setEmail(e.target.value)}
+    //           className='w-full ml-4 px-3 py-2 text-gray-700 placeholder-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-blue-500
+    //            focus:border-blue-500 text-sm overflow-hidden mr-4'
+    //           placeholder='Email address'
+    //           required
+    //         />
+    //         <label htmlFor="newPassword" className='ml-4 block text-sm font-medium text-gray-700'>New Password</label>
+    //         <input
+    //           id="newPassword"
+    //           name="newPassword"
+    //           type='password'
+    //           value={newPassword}
+    //           onChange={(e) => setNewPassword(e.target.value)}
+    //           className='w-full ml-4 px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm'
+    //           placeholder='New password'
+    //           required
+    //         />
+    //         <label htmlFor="password" className='block text-sm font-medium text-gray-700 ml-4'>Confirm Password</label>
+    //         <input
+    //           id="password"
+    //           name="password"
+    //           type='password'
+    //           value={password}
+    //           onChange={(e) => setPassword(e.target.value)}
+    //           className='w-full ml-4 px-3 py-2 text-gray-700 placeholder-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-blue-500
+    //            focus:border-blue-500 text-sm overflow-hidden mr-4'
+    //           placeholder='Confirm password'
+    //           required
+    //         />
+    //       </div>
+    //       {error && <p className='text-red-500 mt-4'>{error}</p>}
+    //       {message && <p className='text-green-500 mt-4'>{message}</p>}
+    //       <div>
+    //         <button
+    //           type='submit'
+    //           className='w-full text-white px-4 py-2 font-medium bg-blue-500 hover:bg-blue-600 text-sm rounded-md overflow-hidden 
+    //           focus:outline-none focus:ring-2 focus:ring-blue-500 border-transparent'
+    //         >
+    //           Reset Password
+    //         </button>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </div>
 
 import React, { useState } from 'react';
 import Room1 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Room1.jpg';
@@ -1200,4 +1255,134 @@ export default Food;
 <Link to="experiences" className="rounded-md px-7 py-2 text-xl font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Experiences</Link>
 <Link to="food" className="rounded-md px-7 py-2 text-xl font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Food</Link>
 
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import Food0 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food0.jpg';
+// import Food7 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food7.jpg';
+// import Food5 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Food5.jpg';
+// import villa1 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/villa1.jpg';
+// import villa4 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/villa4.jpg';
+// import villa8 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/villa8.jpg';
+// import Room6 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Room6.jpg';
+// import Room3 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Room3.jpg';
+// import Room4 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/Room4.jpg';
+// import terr5 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/terr5.jpg';
+// import terr4 from 'C:/Users/Valerie/new/ecleStay_frontend/web/assets/terr4.jpg';
 
+
+// const HomePage = () => {
+//   const data = [
+//     {id:0, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Food0},
+//     {id:7, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Food7},
+//     {id:5, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Food5},
+//     {id:8, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:villa8},
+//     {id:1, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:villa1},
+//     {id:3, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:villa4},
+//     {id:4, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Room4},
+//     {id:10, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Room3},
+//     {id:6, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:Room6},
+//     {id:5, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:terr5},
+//     {id:4, type:"Food Category", name:"Best Delicacies", price:"$54", imageUrl:terr4},
+
+   
+//   ];
+
+//   const [visibleServiceCount, setVisibleServiceCount] = useState(8);
+
+//   const showMoreServices = () => {
+//     setVisibleServiceCount(prevCount => prevCount + 8); // Increase by 8 to show more services
+//   };
+
+//   return (
+
+//     <div className="bg-gray-300 w-full min-h-screen p-4 lg:overflow-hidden">
+//     <h1 className="text-3xl font-bold mb-6 text-center">Explore Our Services</h1>
+//     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+//       {data.slice(0, visibleServiceCount).map(service => (
+//         <div key={service.id} className="border rounded-lg overflow-hidden shadow-lg">
+//           <img src={service.imageUrl} alt={service.name} className="w-full h-72 object-cover" />
+//           <div className="p-4">
+//             <h2 className="text-xl font-bold">{service.name}</h2>
+//             <p className="text-gray-600">{service.type}</p>
+//             <p className="text-gray-800 mt-2">{service.price}</p>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//     {visibleServiceCount < data.length && (
+//       <div className="flex justify-center items-center mt-6">
+//         <button
+//           onClick={showMoreServices}
+//           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+//         >
+//           More Services
+//         </button>
+//       </div>
+//     )}
+//         <footer className=" text-white mt-12 p-4">
+//       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+//         <div className="mb-4 md:mb-0">
+//           <h2 className="text-2xl font-bold">EcleStay</h2>
+//           <p className="text-gray-400">123 Street, City, Country</p>
+//           <p className="text-gray-400">Phone: (123) 456-7890</p>
+//           <p className="text-gray-400">Email: info@eclestay.com</p>
+//         </div>
+//         <div className="container mx-auto mt-4 md:mt-0 flex flex-col items md:flex-row md:space-x-6">
+//           <a href="/contact-us" className="text-gray-400 hover:text-white">
+//             Contact Us
+//           </a>
+//           <a href="/about-us" className="text-gray-400 hover:text-white">
+//             About Us
+//           </a>
+//           <a href="/policy" className="text-gray-400 hover:text-white">
+//             Policy
+//           </a>
+//         </div>
+//         <div className="flex space-x-6">
+//           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+//             Facebook
+//           </a>
+//           <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+//             Twitter
+//           </a>
+//           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+//             Instagram
+//           </a>
+//         </div>
+//       </div>
+//       <div className="mt-4 text-center text-gray-500">
+//         <p>&copy; 2024 EcleStay. All rights reserved.</p>
+//       </div>
+//     </footer>
+//   </div>
+
+//   );
+// };
+
+// export default HomePage;
+
+
+<div className="right-0">
+<h1 className="text-2xl font-bold mb-4">Host Reviews</h1>
+{/* <div id="reviewsContainer">
+  {reviews.map((review, index) => (
+    <Review
+      key={index}
+      reviewerName={review.reviewerName}
+      reviewText={review.reviewText}
+      rating={review.rating}
+      date={review.date} // Adjust if date is part of your review data
+    />
+  ))}
+</div> */}
+
+<h2>Reviews</h2>
+    {reviews.length > 0 ? (
+      reviews.map(review => (
+        <div key={review.id} review={review} />
+      ))
+    ) : (
+      <p>No reviews yet.</p>
+    )}
+
+</div>
